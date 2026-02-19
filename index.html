@@ -3,443 +3,1029 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Playwright CLI & Agentic Automation — Leadership Briefing</title>
-  <meta name="description" content="Leadership-ready strategy deck webpage: Playwright CLI + agentic automation for enterprise opportunities." />
+  <title>Playwright CLI | Enterprise Automation Intelligence Platform</title>
+  <meta name="description" content="Executive strategy page for Playwright CLI: enterprise automation intelligence, measurable business outcomes, and phased adoption roadmap." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #030712;
-      --panel: rgba(15, 23, 42, 0.78);
-      --panel-strong: rgba(15, 23, 42, 0.95);
-      --line: rgba(148, 163, 184, 0.24);
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --brand: #38bdf8;
-      --brand-2: #a78bfa;
-      --good: #34d399;
-      --warn: #fbbf24;
-      --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
-      --radius-xl: 24px;
+      --bg: #f5f8ff;
+      --bg-soft: #eef4ff;
+      --ink: #14213d;
+      --ink-soft: #394867;
+      --surface: #ffffff;
+      --surface-alt: #eff5ff;
+      --line: #d4deef;
+      --brand: #0f5cc0;
+      --brand-soft: #d7e8ff;
+      --accent: #0f766e;
+      --accent-soft: #d4f2ef;
+      --focus: #f59e0b;
+      --radius-xl: 26px;
       --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 44px rgba(24, 57, 114, 0.1);
+      --shadow-card: 0 10px 30px rgba(18, 45, 91, 0.08);
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background: radial-gradient(circle at 15% -10%, #1d4ed8 0%, transparent 28%),
-                  radial-gradient(circle at 85% 0%, #7c3aed 0%, transparent 25%),
-                  linear-gradient(180deg, #020617, #030712 25%, #020617 100%);
+      padding: 0;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
-    .noise::before {
+    body {
+      font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 10% -8%, #b2d0ff 0%, transparent 36%),
+        radial-gradient(circle at 94% -15%, #bcece7 0%, transparent 38%),
+        linear-gradient(180deg, #f9fbff 0%, #f2f7ff 38%, #f8fbff 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.08;
-      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0);
+      background-image:
+        linear-gradient(rgba(20, 33, 61, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 33, 61, 0.035) 1px, transparent 1px);
       background-size: 30px 30px;
+      mask-image: radial-gradient(circle at 50% 0%, black 20%, transparent 90%);
       z-index: 0;
     }
 
-    .shell {
+    .wrap {
+      width: min(1140px, calc(100% - 40px));
+      margin: 0 auto;
       position: relative;
       z-index: 1;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 28px 20px 80px;
+      padding-bottom: 80px;
     }
 
     .topbar {
+      margin-top: 22px;
       position: sticky;
-      top: 12px;
-      z-index: 5;
-      backdrop-filter: blur(14px);
-      background: rgba(2, 6, 23, 0.65);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      top: 14px;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(212, 222, 239, 0.8);
+      backdrop-filter: blur(10px);
       border-radius: 999px;
-      padding: 12px 16px;
+      box-shadow: var(--shadow-soft);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 18px;
+      padding: 11px 16px;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
       gap: 10px;
-      min-width: 0;
+      font-family: "Sora", sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.015em;
+      color: var(--ink-soft);
+      white-space: nowrap;
     }
 
-    .dot {
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      background: linear-gradient(140deg, var(--brand), #1d88d3);
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
       width: 12px;
       height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(120deg, var(--brand), var(--brand-2));
-      box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.2);
-      flex-shrink: 0;
-    }
-
-    .brand span {
-      font-size: 0.92rem;
-      color: var(--muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.85);
+      top: 8px;
+      left: 8px;
     }
 
     .topbar nav {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
-    .chip {
-      color: var(--text);
+    .topbar a {
       text-decoration: none;
+      color: var(--ink);
       font-size: 0.78rem;
-      border: 1px solid var(--line);
-      padding: 6px 11px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      padding: 7px 11px;
       border-radius: 999px;
-      transition: 180ms ease;
-      background: rgba(15, 23, 42, 0.5);
+      transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
     }
 
-    .chip:hover { border-color: var(--brand); transform: translateY(-1px); }
+    .topbar a:hover,
+    .topbar a:focus-visible {
+      background: var(--brand-soft);
+      border-color: #c2d7fa;
+      outline: none;
+    }
 
-    .grid {
-      display: grid;
-      gap: 22px;
+    .hero {
+      margin-top: 34px;
+      border-radius: var(--radius-xl);
+      border: 1px solid #ced9ef;
+      background:
+        linear-gradient(145deg, rgba(15, 92, 192, 0.12), rgba(15, 118, 110, 0.09)),
+        var(--surface);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(28px, 4vw, 56px);
+      overflow: hidden;
+      position: relative;
+      animation: intro-rise 700ms ease-out;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.2) 0%, transparent 70%);
+      right: -180px;
+      bottom: -180px;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--brand);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--brand);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Sora", sans-serif;
+      line-height: 1.2;
+      color: #0f1f3f;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      max-width: 20ch;
+    }
+
+    .hero p {
+      margin-top: 16px;
+      max-width: 68ch;
+      color: #243b63;
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+    }
+
+    .hero-cta {
       margin-top: 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .slide {
-      background: linear-gradient(155deg, rgba(15,23,42,0.92), rgba(15,23,42,0.68));
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 11px;
+      padding: 11px 16px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, #0f5cc0, #0f766e);
+      box-shadow: 0 8px 24px rgba(15, 92, 192, 0.22);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      background: #ffffff;
+      border-color: #c7d5ee;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .hero-metrics {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid #c7d8f2;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.82);
+      padding: 12px 13px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.08rem;
+      color: #0f5cc0;
+      font-family: "Sora", sans-serif;
+      margin-bottom: 2px;
+    }
+
+    .metric span {
+      color: #314a73;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .sections {
+      margin-top: 20px;
+      display: grid;
+      gap: 16px;
+    }
+
+    section.panel {
+      background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
-      padding: 26px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-card);
+      padding: clamp(22px, 3vw, 34px);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 540ms ease, transform 540ms ease;
+    }
+
+    section.panel.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-head {
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+    }
+
+    .section-head p {
+      margin-top: 10px;
+      color: var(--ink-soft);
+      max-width: 74ch;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 11px;
+    }
+
+    .outcome {
+      border: 1px solid #d6dfef;
+      border-radius: var(--radius-md);
+      padding: 13px;
+      background: var(--surface-alt);
+    }
+
+    .outcome h3 {
+      font-size: 0.96rem;
+      margin-bottom: 6px;
+    }
+
+    .outcome p {
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .shift-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .shift {
+      border: 1px solid #d7e2f2;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      background: #fbfdff;
+    }
+
+    .shift h3 {
+      font-size: 0.95rem;
+      color: #0d346f;
+      margin-bottom: 6px;
+    }
+
+    .tag-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      color: #0a4b99;
+      font-weight: 700;
+      border: 1px solid #c2d7fa;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #eaf2ff;
+    }
+
+    .opportunity-meta {
+      margin-bottom: 16px;
+      border: 1px solid #cae1de;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(120deg, #eff9f8, #f8fcff);
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .opportunity-meta p {
+      color: #1f3f65;
+      font-size: 0.94rem;
+    }
+
+    .count-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .count {
+      border: 1px solid #cde2df;
+      border-radius: 10px;
+      text-align: center;
+      padding: 8px 6px;
+      background: #ffffff;
+      font-size: 0.78rem;
+      color: #29595b;
+      font-weight: 700;
+    }
+
+    .usecase-list {
+      columns: 2;
+      column-gap: 20px;
+      padding-left: 20px;
+    }
+
+    .usecase-list li {
+      break-inside: avoid;
+      margin-bottom: 7px;
+      color: #1e3c67;
+      font-size: 0.92rem;
+      padding-right: 8px;
+    }
+
+    .architecture {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    .layer {
+      border: 1px solid #d1ddef;
+      border-radius: var(--radius-md);
+      background: #fafcff;
+      padding: 14px;
+      position: relative;
+    }
+
+    .layer h3 {
+      font-size: 0.94rem;
+      margin-bottom: 6px;
+    }
+
+    .layer p {
+      color: #31517d;
+      font-size: 0.88rem;
+    }
+
+    .layer span {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #0f5cc0;
+      background: #eaf2ff;
+      border: 1px solid #cae0ff;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+    }
+
+    .principles {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .principle {
+      border: 1px solid #d1e0ee;
+      border-radius: 11px;
+      background: #f6faff;
+      padding: 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #23507e;
+      text-align: center;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .impact {
+      border: 1px solid #d5deee;
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      padding: 12px;
+    }
+
+    .impact strong {
+      display: block;
+      font-size: 1.15rem;
+      color: #0f5cc0;
+      margin-bottom: 4px;
+      font-family: "Sora", sans-serif;
+    }
+
+    .impact h3 {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .impact p {
+      color: #334f77;
+      font-size: 0.86rem;
+    }
+
+    .impact-note {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #f9fbff;
+      border: 1px dashed #c8d6ee;
+      color: #45618a;
+      font-size: 0.84rem;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .phase {
+      border: 1px solid #d4dff0;
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      padding: 14px;
       position: relative;
       overflow: hidden;
     }
 
-    .slide::after {
+    .phase::before {
       content: "";
       position: absolute;
-      width: 360px;
-      height: 360px;
-      border-radius: 999px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, transparent 65%);
-      right: -130px;
-      bottom: -210px;
-      pointer-events: none;
+      width: 100%;
+      height: 4px;
+      left: 0;
+      top: 0;
+      background: linear-gradient(90deg, #0f5cc0, #0f766e);
     }
 
-    .meta {
-      font-size: 0.78rem;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--brand);
+    .phase h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .phase p {
+      color: #35547f;
+      font-size: 0.9rem;
       margin-bottom: 8px;
-      font-weight: 700;
     }
 
-    h1, h2, h3, p { margin: 0; }
-    h1 { font-size: clamp(2rem, 3vw, 3rem); line-height: 1.08; }
-    h2 { font-size: clamp(1.5rem, 2.1vw, 2rem); margin-bottom: 10px; }
-    h3 { font-size: 1.08rem; margin-bottom: 10px; color: #f8fafc; }
-
-    .sub {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .lead {
-      color: #cbd5e1;
-      margin-top: 8px;
-      line-height: 1.6;
-    }
-
-    .kpi-row,
-    .cards,
-    .list-grid {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .kpi-row { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
-    .cards { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-    .list-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-
-    .kpi,
-    .card,
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 14px;
-      background: var(--panel);
-    }
-
-    .kpi strong {
-      display: block;
-      font-size: 1.25rem;
-      margin-bottom: 4px;
-      color: #f8fafc;
-    }
-
-    ul {
-      margin: 10px 0 0;
+    .phase ul {
       padding-left: 18px;
-      color: #dbeafe;
-      line-height: 1.6;
+      color: #2a466f;
+      font-size: 0.88rem;
     }
 
-    blockquote {
-      margin: 14px 0 0;
-      padding: 14px 16px;
-      border-left: 3px solid var(--brand);
-      border-radius: 12px;
-      background: rgba(56, 189, 248, 0.12);
-      color: #dbeafe;
+    .phase li {
+      margin-bottom: 6px;
+    }
+
+    .cta {
+      background:
+        linear-gradient(130deg, rgba(15, 92, 192, 0.08), rgba(15, 118, 110, 0.12)),
+        #ffffff;
+      border: 1px solid #c8d8f1;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(22px, 3.5vw, 34px);
+    }
+
+    .cta h2 {
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      color: #244368;
+      margin-bottom: 12px;
+      max-width: 68ch;
+    }
+
+    .decision-list {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .decision-list li {
+      margin-bottom: 7px;
+      color: #223f65;
       font-weight: 600;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      color: #d1fae5;
-      font-size: 0.85rem;
-      border: 1px solid rgba(52, 211, 153, 0.4);
-      border-radius: 999px;
-      padding: 6px 10px;
-      background: rgba(16, 185, 129, 0.12);
-    }
-
-    .accent { color: var(--warn); font-weight: 700; }
-
-    .timeline {
-      display: grid;
+    .cta-actions {
+      display: flex;
       gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer {
       margin-top: 14px;
-    }
-
-    .phase {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      background: var(--panel-strong);
-    }
-
-    footer {
-      margin-top: 24px;
       text-align: center;
-      color: var(--muted);
-      font-size: 0.86rem;
+      color: #5e7396;
+      font-size: 0.84rem;
     }
 
-    @media (max-width: 780px) {
-      .topbar { border-radius: 20px; }
-      .topbar nav { display: none; }
-      .slide { padding: 20px; }
+    @media (max-width: 980px) {
+      .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .shift-grid,
+      .impact-grid,
+      .roadmap,
+      .architecture,
+      .principles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .opportunity-meta {
+        grid-template-columns: 1fr;
+      }
     }
+
+    @media (max-width: 740px) {
+      .topbar {
+        border-radius: 18px;
+      }
+
+      .topbar nav {
+        display: none;
+      }
+
+      .hero-metrics,
+      .shift-grid,
+      .impact-grid,
+      .roadmap,
+      .architecture,
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .usecase-list {
+        columns: 1;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 10% -8%, #b2d0ff 0%, transparent 34%),
+          linear-gradient(180deg, #f8fbff 0%, #eff5ff 100%);
+      }
+    }
+
+    @keyframes intro-rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sections section.panel:nth-child(1) { transition-delay: 40ms; }
+    .sections section.panel:nth-child(2) { transition-delay: 90ms; }
+    .sections section.panel:nth-child(3) { transition-delay: 140ms; }
+    .sections section.panel:nth-child(4) { transition-delay: 190ms; }
+    .sections section.panel:nth-child(5) { transition-delay: 230ms; }
+    .sections section.panel:nth-child(6) { transition-delay: 260ms; }
   </style>
 </head>
-<body class="noise">
-  <div class="shell">
+<body>
+  <div class="wrap">
     <header class="topbar">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>Playwright CLI & Agentic Automation · Leadership Strategy Briefing</span>
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Playwright CLI Enterprise Platform</span>
       </div>
-      <nav>
-        <a class="chip" href="#s1">Title</a>
-        <a class="chip" href="#s4">Capabilities</a>
-        <a class="chip" href="#s5">Use Cases</a>
-        <a class="chip" href="#s12">ISP Opportunities</a>
-        <a class="chip" href="#s14">POC Plan</a>
+      <nav aria-label="Section navigation">
+        <a href="#summary">Executive Summary</a>
+        <a href="#market">Market Shift</a>
+        <a href="#opportunities">Use Cases</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#impact">Business Impact</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#cta">Call to Action</a>
       </nav>
     </header>
 
-    <main class="grid">
-      <section class="slide" id="s1">
-        <p class="meta">Slide 1 · Title</p>
-        <h1>Playwright CLI & Agentic Automation:<br/>New Enterprise Opportunities for Your Organization</h1>
-        <p class="sub">AI-Driven UI Discovery, Automation & Intelligence</p>
-        <div class="badge">Presenter: Leadership & Innovation Team · Date: 2026</div>
-      </section>
+    <section class="hero">
+      <span class="eyebrow">Leadership Strategy Brief</span>
+      <h1>From test automation tool to enterprise automation intelligence platform</h1>
+      <p>
+        Playwright CLI, combined with skills and agentic orchestration, creates a strategic platform for faster delivery,
+        lower operational risk, and reusable automation assets across the enterprise.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#cta">Start 90-day pilot</a>
+        <a class="btn btn-secondary" href="#opportunities">Review 57 use cases</a>
+      </div>
+      <div class="hero-metrics" role="list" aria-label="Key metrics">
+        <article class="metric" role="listitem">
+          <strong>57</strong>
+          <span>Prioritized enterprise use cases</span>
+        </article>
+        <article class="metric" role="listitem">
+          <strong>20-40%</strong>
+          <span>Manual effort reduction potential</span>
+        </article>
+        <article class="metric" role="listitem">
+          <strong>30-50%</strong>
+          <span>Faster triage and cycle-time gains</span>
+        </article>
+        <article class="metric" role="listitem">
+          <strong>Evidence-first</strong>
+          <span>Trace, video, DOM, and API observability</span>
+        </article>
+      </div>
+    </section>
 
-      <section class="slide" id="s2">
-        <p class="meta">Slide 2 · Executive Summary</p>
-        <h2>From Testing Tool to Enterprise Intelligence Engine</h2>
-        <div class="kpi-row">
-          <article class="kpi"><strong>✅ Autonomous UI discovery</strong>Faster system exploration at scale.</article>
-          <article class="kpi"><strong>✅ Trace + video + DOM intelligence</strong>Evidence-backed insights and replayability.</article>
-          <article class="kpi"><strong>✅ Automation beyond QA</strong>Supports onboarding, compliance, and product strategy.</article>
+    <main class="sections">
+      <section class="panel" id="summary">
+        <div class="section-head">
+          <h2>Executive Summary</h2>
+          <p>
+            Playwright CLI is a strategic enterprise opportunity, not a demo utility. It enables automation that can
+            understand system behavior, generate intelligence from application journeys, and produce auditable evidence
+            for engineering, quality, operations, and governance leaders.
+          </p>
         </div>
-        <blockquote>This is not just testing — this is enterprise intelligence automation.</blockquote>
-      </section>
-
-      <section class="slide" id="s3">
-        <p class="meta">Slide 3 · Why This Matters Now</p>
-        <h2>Current Enterprise Pain Points</h2>
-        <div class="list-grid">
-          <article class="panel">Manual documentation and onboarding overhead</article>
-          <article class="panel">Regression testing cost explosion</article>
-          <article class="panel">UI/UX inconsistency across products</article>
-          <article class="panel">Poor visibility into system behavior</article>
-          <article class="panel">Slow understanding of legacy applications</article>
-          <article class="panel">Heavy manual effort in competitor benchmarking</article>
+        <div class="outcome-grid">
+          <article class="outcome">
+            <h3>Business outcomes</h3>
+            <p>Higher engineering throughput without linear headcount increase.</p>
+          </article>
+          <article class="outcome">
+            <h3>Strategic advantage</h3>
+            <p>Agentic automation with trace intelligence and UI-to-API generation.</p>
+          </article>
+          <article class="outcome">
+            <h3>Risk reduction</h3>
+            <p>Evidence-backed releases, better compliance posture, lower defect escape rate.</p>
+          </article>
+          <article class="outcome">
+            <h3>Platform extensibility</h3>
+            <p>Reusable skills, CLI workflows, and integration-ready automation ecosystem.</p>
+          </article>
         </div>
-        <blockquote>Playwright CLI + agents can now automate <em>system understanding itself</em>.</blockquote>
       </section>
 
-      <section class="slide" id="s4">
-        <p class="meta">Slide 4 · What’s New</p>
-        <h2>Playwright CLI + Skills: Core Capabilities</h2>
-        <div class="cards">
-          <article class="card"><h3>Agent-controlled browser automation</h3><p class="lead">Structured, repeatable interactions across complex journeys.</p></article>
-          <article class="card"><h3>Full trace + video + DOM snapshots</h3><p class="lead">Auditable playback and context-rich evidence.</p></article>
-          <article class="card"><h3>Network/API tracing</h3><p class="lead">Direct visibility of UI-to-backend dependencies.</p></article>
-          <article class="card"><h3>Visual reasoning via AI agents</h3><p class="lead">Automated interpretation of flows and outcomes.</p></article>
+      <section class="panel" id="market">
+        <div class="section-head">
+          <h2>Why This Matters Now (Market Shift)</h2>
+          <p>
+            Enterprises are under pressure to deliver faster while improving control. The shift from script-level test automation to
+            agentic, evidence-centric execution makes this a timing advantage for early adopters.
+          </p>
         </div>
-        <blockquote>The platform can understand and document systems, not just test them.</blockquote>
-      </section>
-
-      <section class="slide" id="s5">
-        <p class="meta">Slide 5 · Use Case 1</p>
-        <h2>Autonomous Feature Discovery & Tutorial Generation</h2>
-        <ul>
-          <li><strong>Flow:</strong> Agent logs in → explores features → records execution → explains outcomes.</li>
-          <li><strong>Outputs:</strong> End-to-end tutorials, feature maps, walkthroughs, training assets.</li>
-          <li><strong>Business value:</strong> Faster onboarding, lower training cost, quicker legacy understanding.</li>
-        </ul>
-        <div class="badge">Great for enterprise clients with complex systems.</div>
-      </section>
-
-      <section class="slide" id="s6">
-        <p class="meta">Slide 6 · Use Case 2</p>
-        <h2>UI-to-API Intelligence Extraction</h2>
-        <ul>
-          <li>Agent performs UI journeys while capturing network traces.</li>
-          <li>Maps actions to backend APIs and dependency chains.</li>
-          <li>Generates API inventory, reverse-engineered workflows, and test templates.</li>
-        </ul>
-        <p class="lead"><strong>Business value:</strong> Accelerates modernization, integration, and API automation programs.</p>
-      </section>
-
-      <section class="slide" id="s7">
-        <p class="meta">Slide 7 · Use Case 3</p>
-        <h2>Living Documentation Generator</h2>
-        <ul>
-          <li><strong>Problem:</strong> Traditional documentation becomes outdated immediately.</li>
-          <li><strong>Solution:</strong> Agents auto-refresh screenshots, flows, and guides on a weekly cadence.</li>
-          <li><strong>Outputs:</strong> System maps, usage guides, flow visuals, compliance-ready artifacts.</li>
-        </ul>
-        <p class="lead"><span class="accent">Leadership-friendly:</span> higher governance confidence with lower manual effort.</p>
-      </section>
-
-      <section class="slide" id="s8">
-        <p class="meta">Slide 8 · Use Case 4</p>
-        <h2>UX Compliance & Accessibility Auditor</h2>
-        <ul>
-          <li>Scans typography, color standards, ARIA roles, and design consistency.</li>
-          <li>Produces compliance scorecards, violation reports, and fix recommendations.</li>
-          <li><strong>Business value:</strong> legal risk reduction, better CX, stronger governance.</li>
-        </ul>
-      </section>
-
-      <section class="slide" id="s9">
-        <p class="meta">Slide 9 · Use Case 5</p>
-        <h2>Smart Regression Risk Analyzer</h2>
-        <ul>
-          <li>Compares baseline vs release candidate across DOM, layout, performance, APIs.</li>
-          <li>Generates release risk score and actionable gate insights.</li>
-          <li><strong>Business value:</strong> smarter CI/CD, reduced test cost, faster releases.</li>
-        </ul>
-        <div class="badge">Strong Azure DevOps alignment.</div>
-      </section>
-
-      <section class="slide" id="s10">
-        <p class="meta">Slide 10 · Use Case 6</p>
-        <h2>Competitor Intelligence & Benchmarking</h2>
-        <ul>
-          <li>Runs on competitor digital journeys for feature mapping and funnel observations.</li>
-          <li>Captures performance signals and UX friction points.</li>
-          <li><strong>Outputs:</strong> comparison matrix, feature-gap insights, strategic recommendations.</li>
-        </ul>
-      </section>
-
-      <section class="slide" id="s11">
-        <p class="meta">Slide 11 · Use Case 7</p>
-        <h2>Auto Test Generation from Real Usage</h2>
-        <ul>
-          <li>Converts observed real journeys into Playwright, Robot Framework, and API tests.</li>
-          <li>Improves realism, increases defect detection, lowers manual test design effort.</li>
-        </ul>
-        <div class="badge">High-impact enabler for QA transformation.</div>
-      </section>
-
-      <section class="slide" id="s12">
-        <p class="meta">Slide 12 · Opportunities for ISP</p>
-        <h2>New Service Offerings We Can Launch</h2>
-        <div class="cards">
-          <article class="card">AI-Driven Documentation as a Service</article>
-          <article class="card">UX & Compliance Audit Services</article>
-          <article class="card">Intelligent Regression Advisory</article>
-          <article class="card">Legacy System Discovery Service</article>
-          <article class="card">Competitive Intelligence Automation</article>
-          <article class="card">API Reverse Engineering Service</article>
+        <div class="shift-grid">
+          <article class="shift">
+            <h3>Complexity has outpaced manual control</h3>
+            <p>Application estates now span microservices, external dependencies, and frequent releases.</p>
+          </article>
+          <article class="shift">
+            <h3>AI is moving into operational execution</h3>
+            <p>Agents can observe, reason, and execute within governed boundaries across real product journeys.</p>
+          </article>
+          <article class="shift">
+            <h3>Leadership requires speed with governance</h3>
+            <p>Delivery velocity must improve while preserving auditability, security, and reliability.</p>
+          </article>
         </div>
-        <blockquote>Positioning: “AI-powered system intelligence partner”.</blockquote>
+        <div class="tag-row" aria-label="Strategic themes">
+          <span class="tag">Automation at scale</span>
+          <span class="tag">Trace intelligence</span>
+          <span class="tag">UI-to-API visibility</span>
+          <span class="tag">Governed agentic workflows</span>
+          <span class="tag">Competitive differentiation</span>
+        </div>
       </section>
 
-      <section class="slide" id="s13">
-        <p class="meta">Slide 13 · ROI & Differentiation</p>
-        <h2>Financial + Strategic Upside</h2>
-        <div class="kpi-row">
-          <article class="kpi"><strong>Reduced manual testing cost</strong>Optimize repetitive QA spend.</article>
-          <article class="kpi"><strong>Faster onboarding</strong>Decrease time-to-productivity.</article>
-          <article class="kpi"><strong>Lower documentation burden</strong>Automate knowledge maintenance.</article>
-          <article class="kpi"><strong>Fewer production defects</strong>Raise release confidence.</article>
+      <section class="panel" id="opportunities">
+        <div class="section-head">
+          <h2>Enterprise Opportunity Areas (57 strong use cases)</h2>
+          <p>
+            The opportunity map spans seven domains and supports both internal transformation and client-facing managed services.
+            Use cases are immediately pilotable and can be scaled through reusable skills.
+          </p>
         </div>
-        <p class="lead">Few ISPs are leveraging agentic browser automation at scale today — <span class="accent">early mover advantage</span> is available now.</p>
+        <div class="opportunity-meta">
+          <p>
+            Priority domains: engineering productivity, architecture intelligence, quality and reliability, governance and compliance,
+            product and customer experience, operations and support, and platform extensibility.
+          </p>
+          <div class="count-grid">
+            <div class="count">Engineering: 10</div>
+            <div class="count">Architecture: 8</div>
+            <div class="count">Quality: 9</div>
+            <div class="count">Governance: 7</div>
+            <div class="count">Product/CX: 7</div>
+            <div class="count">Ops + Platform: 16</div>
+          </div>
+        </div>
+        <ol class="usecase-list">
+          <li>Autonomous feature discovery maps</li>
+          <li>Auto tutorial generation for new capabilities</li>
+          <li>User journey mining from runtime behavior</li>
+          <li>Code-free smoke path generation</li>
+          <li>Regression suite auto-maintenance</li>
+          <li>Flaky test root-cause classification</li>
+          <li>PR risk briefs from UI and API deltas</li>
+          <li>Release readiness scorecards</li>
+          <li>Governed selector self-healing</li>
+          <li>CI failure triage summaries</li>
+          <li>UI-to-API endpoint mapping</li>
+          <li>API contract drift detection</li>
+          <li>Hidden dependency discovery</li>
+          <li>Service call-sequence extraction</li>
+          <li>Backend ownership mapping</li>
+          <li>Environment behavior diff analysis</li>
+          <li>Integration catalog generation</li>
+          <li>Test-data dependency mapping</li>
+          <li>Intelligent regression risk analysis</li>
+          <li>Defect clustering by failure signature</li>
+          <li>Production incident reproduction automation</li>
+          <li>Cross-browser parity checks at scale</li>
+          <li>Mobile web journey validation</li>
+          <li>Non-functional guardrail verification</li>
+          <li>Journey-level reliability SLO tracking</li>
+          <li>Canary validation automation</li>
+          <li>Blast-radius simulation before release</li>
+          <li>Accessibility checks with evidence packs</li>
+          <li>Consent and cookie policy validation</li>
+          <li>PII exposure detection in traces</li>
+          <li>Role-based behavior validation</li>
+          <li>Release approval audit trails</li>
+          <li>Regulatory control test automation</li>
+          <li>Third-party script risk monitoring</li>
+          <li>Onboarding friction detection</li>
+          <li>Checkout funnel break analysis</li>
+          <li>Localization quality verification</li>
+          <li>Search and recommendation quality checks</li>
+          <li>Competitive journey benchmarking</li>
+          <li>Feature adoption observation exports</li>
+          <li>UX pattern consistency monitoring</li>
+          <li>Runbook automation for repeat incidents</li>
+          <li>Self-service diagnostics for support teams</li>
+          <li>Reproducible bug packages for engineering</li>
+          <li>SLA impact prediction from regressions</li>
+          <li>Evidence-rich support handoff artifacts</li>
+          <li>Change-window validation and rollback confidence</li>
+          <li>Reusable domain skill packs</li>
+          <li>Internal CLI extensions by team</li>
+          <li>Azure DevOps, Jira, and ServiceNow integrations</li>
+          <li>Policy guardrails for agent actions</li>
+          <li>Multi-tenant automation workspace model</li>
+          <li>Shared trace intelligence lake</li>
+          <li>Template marketplace for repeatable patterns</li>
+          <li>SDK connectors to internal systems</li>
+          <li>Orchestrated web, API, and data automation</li>
+          <li>Managed automation services for new revenue</li>
+        </ol>
       </section>
 
-      <section class="slide" id="s14">
-        <p class="meta">Slide 14 · Suggested Next Steps</p>
-        <h2>POC Roadmap for Leadership Approval</h2>
-        <div class="timeline">
-          <article class="phase"><strong>Phase 1 (POC):</strong> Select 1–2 internal apps and implement Living Documentation + Regression Analyzer.</article>
-          <article class="phase"><strong>Phase 2 (Scale):</strong> Integrate with Azure DevOps and build reusable automation frameworks.</article>
-          <article class="phase"><strong>Phase 3 (Monetize):</strong> Productize capabilities into client-facing services.</article>
+      <section class="panel" id="architecture">
+        <div class="section-head">
+          <h2>Architecture Vision (CLI + Skills + Agent + Trace + Video + API)</h2>
+          <p>
+            The architecture is designed for enterprise-grade scale, observability, and control. Every run is explainable,
+            reusable, and integration-ready.
+          </p>
         </div>
-        <blockquote>Leadership ask: Approve a pilot initiative to validate ROI and service-market fit within one quarter.</blockquote>
+        <div class="architecture">
+          <article class="layer">
+            <span>Layer 1</span>
+            <h3>CLI Command Plane</h3>
+            <p>Consistent command interface for deterministic execution across teams and environments.</p>
+          </article>
+          <article class="layer">
+            <span>Layer 2</span>
+            <h3>Skills Registry</h3>
+            <p>Reusable capability modules for domain workflows, policy checks, and enterprise standards.</p>
+          </article>
+          <article class="layer">
+            <span>Layer 3</span>
+            <h3>Agent Orchestration</h3>
+            <p>Goal-driven execution that plans tasks and invokes skills within approved guardrails.</p>
+          </article>
+          <article class="layer">
+            <span>Layer 4</span>
+            <h3>Trace and Video Evidence</h3>
+            <p>DOM, network, video, and timing telemetry for root-cause analysis, governance, and audits.</p>
+          </article>
+          <article class="layer">
+            <span>Layer 5</span>
+            <h3>UI-to-API Intelligence</h3>
+            <p>Automatic extraction of API dependencies and workflow contracts from actual user journeys.</p>
+          </article>
+          <article class="layer">
+            <span>Layer 6</span>
+            <h3>Enterprise Integrations</h3>
+            <p>CI/CD, DevOps, ITSM, and analytics integration for continuous operating leverage.</p>
+          </article>
+        </div>
+        <div class="principles" aria-label="Architecture principles">
+          <div class="principle">Deterministic where required</div>
+          <div class="principle">Adaptive where high value</div>
+          <div class="principle">Evidence by default</div>
+          <div class="principle">Policy enforcement built in</div>
+        </div>
       </section>
 
-      <section class="slide" id="tip">
-        <p class="meta">Presentation Tip</p>
-        <h2>What Leadership Cares About Most</h2>
-        <div class="kpi-row">
-          <article class="kpi"><strong>✅ Business value</strong></article>
-          <article class="kpi"><strong>✅ Risk reduction</strong></article>
-          <article class="kpi"><strong>✅ New revenue</strong></article>
-          <article class="kpi"><strong>✅ Competitive differentiation</strong></article>
+      <section class="panel" id="impact">
+        <div class="section-head">
+          <h2>Business Impact (Cost savings, speed, quality, governance)</h2>
+          <p>
+            Early deployments typically show measurable improvements in cost efficiency, release speed, and governance confidence.
+            This is where automation becomes an enterprise P and L lever.
+          </p>
         </div>
-        <p class="lead">Lead with outcomes, not tool internals.</p>
+        <div class="impact-grid">
+          <article class="impact">
+            <strong>20-40%</strong>
+            <h3>Cost efficiency</h3>
+            <p>Reduced manual effort across regression analysis, triage, and documentation maintenance.</p>
+          </article>
+          <article class="impact">
+            <strong>30-50%</strong>
+            <h3>Speed</h3>
+            <p>Faster incident reproduction, root-cause isolation, and release decision cycles.</p>
+          </article>
+          <article class="impact">
+            <strong>25-45%</strong>
+            <h3>Quality</h3>
+            <p>Lower defect leakage through intelligent risk scoring and higher-value test coverage.</p>
+          </article>
+          <article class="impact">
+            <strong>Audit-ready</strong>
+            <h3>Governance</h3>
+            <p>Evidence-rich trails for compliance, accessibility, and release approvals.</p>
+          </article>
+        </div>
+        <p class="impact-note">
+          Competitive differentiation: few organizations operationalize agentic browser automation as a platform. Early investment
+          creates defensible advantage through compounding skills, telemetry, and workflow data.
+        </p>
+      </section>
+
+      <section class="panel" id="roadmap">
+        <div class="section-head">
+          <h2>Adoption Roadmap (Phase 1 -> Phase 2 -> Phase 3)</h2>
+          <p>
+            A practical rollout model that starts with measurable pilot value and scales into a governed enterprise platform.
+          </p>
+        </div>
+        <div class="roadmap">
+          <article class="phase">
+            <h3>Phase 1: Prove (0-90 days)</h3>
+            <p>Validate ROI in 2-3 critical applications.</p>
+            <ul>
+              <li>Implement 8-12 high-value use cases.</li>
+              <li>Instrument baseline KPIs for speed, quality, and effort.</li>
+              <li>Deliver executive readout with quantified impact.</li>
+            </ul>
+          </article>
+          <article class="phase">
+            <h3>Phase 2: Scale (3-9 months)</h3>
+            <p>Convert pilots into reusable enterprise capabilities.</p>
+            <ul>
+              <li>Package reusable skills and templates.</li>
+              <li>Integrate with CI/CD, DevOps, and ITSM systems.</li>
+              <li>Establish policy and governance operating model.</li>
+            </ul>
+          </article>
+          <article class="phase">
+            <h3>Phase 3: Institutionalize (9-18 months)</h3>
+            <p>Operate as a platform and strategic differentiator.</p>
+            <ul>
+              <li>Expand to priority business units.</li>
+              <li>Standardize chargeback and ownership model.</li>
+              <li>Launch managed automation offerings where relevant.</li>
+            </ul>
+          </article>
+        </div>
       </section>
     </main>
 
-    <footer>Prepared for leadership consumption · Playwright CLI Strategy Deck Web Edition</footer>
+    <section class="cta" id="cta">
+      <h2>Call to Action</h2>
+      <p>
+        Approve a leadership-sponsored 90-day pilot this quarter to validate business outcomes, de-risk adoption,
+        and establish a scalable enterprise automation intelligence foundation.
+      </p>
+      <ol class="decision-list">
+        <li>Approve cross-functional pilot charter (Engineering, QA, Platform, Security, Product).</li>
+        <li>Prioritize top 10 use cases from the 57-opportunity map aligned to current business pain.</li>
+        <li>Fund a focused platform squad for implementation and KPI instrumentation.</li>
+      </ol>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="#roadmap">Review rollout plan</a>
+        <a class="btn btn-secondary" href="#summary">Revisit executive summary</a>
+      </div>
+    </section>
+
+    <p class="footer">Playwright CLI Enterprise Strategy Page | Built for CIO and VP Engineering decision-making</p>
   </div>
+
+  <script>
+    const panels = document.querySelectorAll("section.panel");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    panels.forEach((panel) => observer.observe(panel));
+  </script>
 </body>
 </html>
