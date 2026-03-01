@@ -1,0 +1,15 @@
+{
+  "project_key": "Playwrite-CLI",
+  "gtm": {
+    "container_id": "GTM-MKBT6R73"
+  },
+  "ga4": {
+    "measurement_id": "G-TGC17M8DH9"
+  },
+  "tracking": {
+    "enabled": true,
+    "debug": false
+  },
+  "_managed_by": "brand-analytics-automation",
+  "_version": "1.0.0"
+}
